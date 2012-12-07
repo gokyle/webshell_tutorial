@@ -22,6 +22,7 @@ Let's get started!
 
 ## Table of Contents
 
-* [Introduction: A Minimal App](/intro.html)
-* [Routes](/routes.html)
+* [Introduction: A Minimal App](/intro)
+* [Routes](/routes)
+* [Basic Request Handlers](/basic_handlers)
 

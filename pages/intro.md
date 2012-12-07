@@ -85,7 +85,6 @@ the host to listen on, and the port to listen on.
         app := webshell.NewApp("minimal app", "127.0.0.1", "8080")
 ```
 
-Then, we [add a route](/routes.html). For this, let's head over to the next
-section.
+Then, we add a route. For this, let's [head over to the next section](/routes).
 
 
