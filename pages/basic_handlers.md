@@ -97,3 +97,7 @@ Note that when manually setting headers, `net/http` won't set any default
 headers (except for the date header). Therefore, you should be setting
 the `content-type`, `transfer-encoding`, and `connection` headers as
 appropriate.
+
+### Looking at the request
+The `Request` value contains all the information we have about the client's
+request. One of the most useful things when we're 
