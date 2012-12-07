@@ -55,4 +55,31 @@ There are two major things to note about this revision:
 0. The `app` variable is now global to the app; any function can now access
 it to get the app's name or address.
 0. We get the path from the request by accessing the request's `URL` field,
-which is an instance of [`net/url`](http://golang.org/pkg/net/url/#URL).
+which is an instance of [`net/url`](http://golang.org/pkg/net/url/#URL). We
+can directly access the `Path` field to see what page was requested.
+
+We could write a verbose function to serve static files, but it would be
+a lot easier if we could just specify a directory of static files a certain
+route should serve. The good news -- we can! If we had some CSS files in
+`assets/css/` we could take one of two approaches:
+
+0. `app.StaticRoute("/assets/", "assets/")` means a request for
+app.Address()/assets/<anything> will be matched in the `assets` directory.
+That's the approach the app backing this site takes (take a look at this
+page's source...)
+0. `app.StaticRoute("/css/", "/assets/css/")` will match any requests for
+`/css/*` will be matched by the same path under `assets/css/`.
+
+There is a third method for adding routes: `ConditionalAddRoute` will add
+the route only if the condition is true. I added this to ease making
+authentication simple in certain apps:
+
+```
+        app.ConditionalAddRoute(auth_required, "/change_pass", changePass)
+```
+
+It takes a boolean as its first argument, adding the route arguments that
+follow if the boolean is true.
+
+Now that we have some routes, let's look at
+[writing basic request handlers](/basic_handlers).
