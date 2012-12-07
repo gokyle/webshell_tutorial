@@ -34,6 +34,7 @@ setting any headers. Here is a simple test server that demonstrates writing
 headers.
 
 [`headers.go`](/examples/basic_handlers/headers.go)
+
 ```
 package main
 
@@ -74,6 +75,7 @@ func headerHandler(w http.ResponseWriter, r *http.Request) {
 ```
 
 Let's fire it up:
+
 ```
 $ go run headers.go hello world foo bar baz quux
 2012/12/06 23:47:02 [+] route / added
@@ -81,6 +83,7 @@ $ go run headers.go hello world foo bar baz quux
 ```
 
 If we make a request with cUrl, we can see the headers being written:
+
 ```
 $ curl -I localhost:8080
 HTTP/1.1 200 OK
