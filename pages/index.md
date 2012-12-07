@@ -24,5 +24,5 @@ Let's get started!
 
 * [Introduction: A Minimal App](/intro)
 * [Routes](/routes)
-* [Basic Request Handlers](/basic_handlers)
+* [Basic Request Handlers](/basic_handlers) **(WIP)**
 
