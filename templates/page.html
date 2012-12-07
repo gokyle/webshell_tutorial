@@ -66,8 +66,8 @@
     <a class="brand" href="#">Webshell Tutorial</a>
     <div class="nav-collapse collapse">
         <ul class="nav">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="/about.html">About</a></li>
+          <li{{if .HomeActive}} class="active"{{end}}><a href="/">Home</a></li>
+          <li{{if .AboutActive}} class="active"{{end}}><a href="/about.html">About</a></li>
       </ul>
   </div><!--/.nav-collapse -->
 </div>

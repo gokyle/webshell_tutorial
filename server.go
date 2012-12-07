@@ -16,11 +16,13 @@ var (
         server_port = "8080"
         page_tpl = webshell.MustCompileTemplate("templates/page.html")
         htmlToMd = regexp.MustCompile("^(.+)\\.html$")
-        extRegex = regexp.MustCompile("^.+\\.(\\w+)$")
+        extRegex = regexp.MustCompile("^(.+)\\.(\\w+)$")
         slash_replace = regexp.MustCompile("/")
 )
 
 type Page struct {
+        HomeActive bool
+        AboutActive bool
         Title string
         Body template.HTML
 }
@@ -40,7 +42,7 @@ func servePage(w http.ResponseWriter, r *http.Request) {
 
         var md_file string
         if extRegex.MatchString(file) {
-                if ext := extRegex.ReplaceAllString(file, "$1"); ext == "html" {
+                if ext := extRegex.ReplaceAllString(file, "$2"); ext == "html" {
                         md_file = "pages/" + htmlToMd.ReplaceAllString(file,
                                      "$1.md")
                 }
@@ -49,12 +51,19 @@ func servePage(w http.ResponseWriter, r *http.Request) {
         }
         out, err := loadMarkdown(md_file)
         if err != nil {
+                fmt.Printf("saw request for %s, tried %s\n", file, md_file)
                 webshell.Error404("Page not found.", "text/plain", w, r)
                 return
         }
-        title := htmlToMd.ReplaceAllString(filepath.Base(file), "$1")
+        title := extRegex.ReplaceAllString(filepath.Base(file), "$1")
         title = slash_replace.ReplaceAllString(title, " ")
-        page := Page{title, template.HTML(string(out))}
+        page := Page{false, false, title, template.HTML(string(out))}
+        active := extRegex.ReplaceAllString(filepath.Base(file), "$1")
+        if active == "index" {
+                page.HomeActive = true
+        } else if active == "about" {
+                page.AboutActive = true
+        }
         body, err := webshell.BuildTemplate(page_tpl, page)
         if err != nil {
                 webshell.Error500(err.Error(), "text/plain", w, r)
