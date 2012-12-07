@@ -100,4 +100,5 @@ appropriate.
 
 ### Looking at the request
 The `Request` value contains all the information we have about the client's
-request. One of the most useful things when we're 
+request. One of the most useful things when we're handling requests is to be
+able to inspect the request path.
