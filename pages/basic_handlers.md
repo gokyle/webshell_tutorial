@@ -40,8 +40,8 @@ package main
 
 import (
         "fmt"
-	"github.com/gokyle/webshell"
-	"net/http"
+        "github.com/gokyle/webshell"
+         "net/http"
         "os"
 )
 
@@ -60,9 +60,9 @@ func main() {
                         headers[os.Args[i]] = os.Args[i+1]
                 }
         }
-	app := webshell.NewApp("minimal app", "127.0.0.1", "8080")
-	app.AddRoute("/", headerHandler)
-	app.Serve()
+        app := webshell.NewApp("minimal app", "127.0.0.1", "8080")
+        app.AddRoute("/", headerHandler)
+        app.Serve()
 }
 
 func headerHandler(w http.ResponseWriter, r *http.Request) {
