@@ -22,7 +22,12 @@ Let's get started!
 
 ## Table of Contents
 
-* [Introduction: A Minimal App](/intro)
-* [Routes](/routes)
-* [Basic Request Handlers](/basic_handlers) **(WIP)**
+### The Webshell Core
+* [Introduction: a minimal app](/intro)
+* [Adding routes](/routes)
+* [Writing basic request handlers](/basic_handlers) **(WIP)**
+* Templating pages
 
+### Webshell Subpackages
+* Add an asset cache to speed up serving static files with `webshell/assetcache`
+* Add authentication and sessions with `webshell/auth`
