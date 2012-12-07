@@ -15,7 +15,8 @@ import (
 var (
         server_port = "8080"
         page_tpl = webshell.MustCompileTemplate("templates/page.html")
-        htmlToMd = regexp.MustCompile("^(.+)(?:\\.html)?$")
+        htmlToMd = regexp.MustCompile("^(.+)\\.html$")
+        extRegex = regexp.MustCompile("^.+\\.(\\w+)$")
         slash_replace = regexp.MustCompile("/")
 )
 
@@ -36,8 +37,16 @@ func servePage(w http.ResponseWriter, r *http.Request) {
         if file == "" {
                 file = "index.html"
         }
-        md_file := "pages/" + htmlToMd.ReplaceAllString(file, "$1.md")
-        fmt.Printf("saw request for %s, will look for %s\n", file, md_file)
+
+        var md_file string
+        if extRegex.MatchString(file) {
+                if ext := extRegex.ReplaceAllString(file, "$1"); ext == "html" {
+                        md_file = "pages/" + htmlToMd.ReplaceAllString(file,
+                                     "$1.md")
+                }
+        } else {
+                md_file = "pages/" + file + ".md"
+        }
         out, err := loadMarkdown(md_file)
         if err != nil {
                 webshell.Error404("Page not found.", "text/plain", w, r)
