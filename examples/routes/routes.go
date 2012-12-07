@@ -1,7 +1,7 @@
 package main
 
 import (
-        "fmt"
+	"fmt"
 	"github.com/gokyle/webshell"
 	"net/http"
 )
@@ -17,7 +17,7 @@ func main() {
 func itWorks(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("It worked!"))
 
-        route := fmt.Sprintf("\nhandling route for %s%s", app.Address(),
-                r.URL.Path)
-        w.Write([]byte(route))
+	route := fmt.Sprintf("\nhandling route for %s%s", app.Address(),
+		r.URL.Path)
+	w.Write([]byte(route))
 }
