@@ -15,7 +15,7 @@ import (
 var (
         server_port = "8080"
         page_tpl = webshell.MustCompileTemplate("templates/page.html")
-        htmlToMd = regexp.MustCompile("^(.+)(\\.html)?$")
+        htmlToMd = regexp.MustCompile("^(.+)(?:\\.html)?$")
         slash_replace = regexp.MustCompile("/")
 )
 
