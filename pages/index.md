@@ -18,8 +18,9 @@ The package documentation can be found in the
 [webshell godocs](http://gopkgdoc.appspot.com/github.com/gokyle/webshell). I've
 made it a priority to make sure the framework is well-documented.
 
-The linked examples can be downloaded and run; to keep them from being compiled
-into this app, I've named them as text files.
+***Note***: *Several sections link to example source files. The linked examples
+can be downloaded and run; to keep them from being compiled into this app,
+I've named them as text files. Just remove the `.txt` ending in the file name.*
 
 Let's get started!
 
