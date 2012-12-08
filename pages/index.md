@@ -27,7 +27,14 @@ Let's get started!
 * [Adding routes](/routes)
 * [Writing basic request handlers](/basic_handlers) **(WIP)**
 * Templating pages
+* Handling forms
+* [Deploying your app](/deployment)
 
 ### Webshell Subpackages
 * Add an asset cache to speed up serving static files with `webshell/assetcache`
 * Add authentication and sessions with `webshell/auth`
+
+## Resources
+* [`net/http`](http://golang.org/pkg/net/http)
+* [Go language spec](http://golang.org/ref/spec)
+
