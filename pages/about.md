@@ -20,6 +20,9 @@ as is this site. The content on this site is licensed under a
 
 ### Who are you?
 Hi! I'm [Kyle](http://www.kyleisom.net). You can take a look at my
-[Go-centric](http://gokyle.github.com/) Github page.
+[Go projects](http://gokyle.github.com/) Github page.
 
-
+### How do I get a hold of you?
+If you have feedback, you can find my email address on my
+[About](http://www.kyleisom.net/about/) page on my personal site, or
+[find me on Twitter](https://twitter.com/kyleisom).
