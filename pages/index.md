@@ -31,8 +31,9 @@ Let's get started!
 * [Adding routes](/routes)
 * [Writing basic request handlers](/basic_handlers)
 * [Templating pages](/templating)
-* [Handling forms](/forms)
-* Error handling: built-in generic error handlers and template error handlers
+* [Handling forms](/forms) **(WIP)**
+* [Error handling: built-in generic error handlers and template error handlers](/errors)
+**(WIP)**
 * [Deploying your app](/deployment)
 
 ### Webshell Subpackages
@@ -42,4 +43,4 @@ Let's get started!
 ## Resources
 * [`net/http`](http://golang.org/pkg/net/http)
 * [Go language spec](http://golang.org/ref/spec)
-
+* [Jan Newmarch's template guide](http://jan.newmarch.name/go/template/chapter-template.html)

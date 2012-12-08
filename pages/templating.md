@@ -148,6 +148,6 @@ In the case of an error, the app uses the webshell built-in errors. We'll
 [take a look at those](/errors) later.
 
 If you're curious, webshell comes with a
-['basic templating example'](https://github.com/gokyle/webshell/tree/master/examples/templates).
+[basic templating example](https://github.com/gokyle/webshell/tree/master/examples/templates).
 
 Let's move on to [handling forms](/forms).
