@@ -42,6 +42,7 @@ could be passed to the template:
 {{if .ShowError}}
 <h3 style="color:red">{{.Err}}
 {{end}}
+```
 
 We can also range over values:
 
