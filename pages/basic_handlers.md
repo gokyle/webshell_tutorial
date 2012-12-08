@@ -100,5 +100,112 @@ appropriate.
 
 ### Looking at the request
 The `Request` value contains all the information we have about the client's
-request. One of the most useful things when we're handling requests is to be
-able to inspect the request path.
+request. Some quick notes:
+
+* The `Method` field contains the method (in uppercase) - i.e., GET, POST,
+etc...
+* The `RemoteAddr` field contains the client's IP; however, if the server is
+proxied behind another server (i.e. an [nginx](http://nginx.org) proxy,
+or for apps running under Heroku), this will be the IP of the proxy.
+
+
+#### The request URL
+One of the most useful things when we're handling requests is to
+be able to inspect the request path. The request object includes a
+[`net/url`](http://golang.org/pkg/net/url/#URL) object (`r.URL`)
+with the client's complete resource request. When routing, we'll
+probably be interested in the `Path` field. We saw this being used
+in the [`routes.go`](/examples/routes/routes.go) example. The `URL`
+also contains the query: we can get the raw query with the `RawQuery`
+field, or use the `Query()` method to get at the queries:
+
+[`query.go`](/examples/basic_handlers/query.go):
+
+```
+package main
+
+import (
+	"fmt"
+	"github.com/gokyle/webshell"
+	"net/http"
+)
+
+func main() {
+	app := webshell.NewApp("minimal app", "127.0.0.1", "8080")
+	app.AddRoute("/", queryParser)
+	app.Serve()
+}
+
+func queryParser(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("It worked!\n"))
+	if r.URL.RawQuery == "" {
+		return
+	}
+
+	queries := r.URL.Query()
+	// the net/url.Values type returned by ParseQuery is a
+	// map[string][]string
+	for k, vlst := range queries {
+		w.Write([]byte(fmt.Sprintf("\t%s:", k)))
+		for _, v := range vlst {
+			w.Write([]byte(fmt.Sprintf(" %s", v)))
+		}
+		w.Write([]byte("\n"))
+	}
+
+}
+```
+
+You can pull up the server locally and try some of the following requests:
+
+* http://localhost:8080/
+* http://localhost:8080/?foo
+* http://localhost:8080/?foo=bar
+* http://localhost:8080/?foo=bar;baz=quux
+* http://localhost:8080/?foo=bar&foo=baz
+* http://localhost:8080/?foo=bar&baz=quux
+
+#### Reading headers
+We can also grab headers from the
+[`request`](http://golang.org/pkg/net/http/#Request) object:
+
+[`read_headers.go`](/examples/basic_handlers/read_headers.go):
+
+```
+package main
+
+import (
+	"fmt"
+	"github.com/gokyle/webshell"
+	"net/http"
+	"strings"
+)
+
+func main() {
+	app := webshell.NewApp("minimal app", "127.0.0.1", "8080")
+	app.AddRoute("/", read_headers)
+	app.Serve()
+}
+
+func read_headers(w http.ResponseWriter, r *http.Request) {
+	response := fmt.Sprintf("The client sent the headers:\n")
+	for k, values := range r.Header {
+		response += fmt.Sprintf("\t%s: ", k)
+		values = strings.Split(values[0], ";")
+		for _, value := range values {
+			response += fmt.Sprintf("%s, ", value)
+		}
+		response += fmt.Sprintf("\n")
+	}
+	w.Write([]byte(response))
+}
+```
+
+In [`net/http`](http://golang.org/pkg/net/http), the header is defined as a
+`map[string][]string`.
+
+There's more to the request object than what we've seen here; for more
+information you can check out the
+[`Request` documentation](http://golang.org/pkg/net/http/#Request).
+
+Let's take a look at [using templates now](/templating).
