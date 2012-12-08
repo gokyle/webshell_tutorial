@@ -34,8 +34,7 @@ func init() {
         }
 }
 
-func servePage(w http.ResponseWriter, r *http.Request) {
-        file := r.URL.Path[1:]
+func getMdFilename(file string) string {
         if file == "" {
                 file = "index.html"
         }
@@ -49,15 +48,25 @@ func servePage(w http.ResponseWriter, r *http.Request) {
         } else {
                 md_file = "pages/" + file + ".md"
         }
+        return md_file
+}
+
+func getPageTitle(pagename string) string {
+        title := extRegex.ReplaceAllString(filepath.Base(pagename), "$1")
+        title = slash_replace.ReplaceAllString(title, " ")
+        return title
+}
+
+func servePage(w http.ResponseWriter, r *http.Request) {
+        md_file := getMdFilename(r.URL.Path[1:])
+        title := getPageTitle(md_file)
         out, err := loadMarkdown(md_file)
         if err != nil {
                 webshell.Error404("Page not found.", "text/plain", w, r)
                 return
         }
-        title := extRegex.ReplaceAllString(filepath.Base(file), "$1")
-        title = slash_replace.ReplaceAllString(title, " ")
         page := Page{false, false, title, template.HTML(string(out))}
-        active := extRegex.ReplaceAllString(filepath.Base(file), "$1")
+        active := extRegex.ReplaceAllString(filepath.Base(md_file), "$1")
         if active == "index" {
                 page.HomeActive = true
         } else if active == "about" {
