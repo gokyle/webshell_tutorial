@@ -74,7 +74,7 @@ These are just the basics; the [`html/template`](http://golang.org/pkg/html/temp
 documentation has more. It is based on the
 [`text/template`](http://golang.org/pkg/text/template) package.
 [Jan Newmarch](http://jan.newmarch.name) has a
-[great writeup on templates](http://jan.newmarch.name/template/chapter-template.html)
+[great writeup on templates](http://jan.newmarch.name/go/template/chapter-template.html)
 that is worth reading for more information.
 
 ### Using templates in webshell
