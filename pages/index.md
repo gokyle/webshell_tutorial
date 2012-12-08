@@ -30,8 +30,9 @@ Let's get started!
 * [Introduction: a minimal app](/intro)
 * [Adding routes](/routes)
 * [Writing basic request handlers](/basic_handlers)
-* [Templating pages](/templating) **(WIP)**
-* Handling forms
+* [Templating pages](/templating)
+* [Handling forms](/forms)
+* Error handling: built-in generic error handlers and template error handlers
 * [Deploying your app](/deployment)
 
 ### Webshell Subpackages
