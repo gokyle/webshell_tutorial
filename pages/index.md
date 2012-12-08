@@ -29,8 +29,8 @@ Let's get started!
 ### The Webshell Core
 * [Introduction: a minimal app](/intro)
 * [Adding routes](/routes)
-* [Writing basic request handlers](/basic_handlers) **(WIP)**
-* Templating pages
+* [Writing basic request handlers](/basic_handlers)
+* [Templating pages](/templating) **(WIP)**
 * Handling forms
 * [Deploying your app](/deployment)
 
