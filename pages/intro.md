@@ -22,7 +22,7 @@ func itWorks(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-If this code is in [`minimal.go`](/examples/intro/minimal.go), we could do this:
+If this code is in [`minimal.go`](/examples/intro/minimal.go.txt), we could do this:
 
 ```
 $ go run server.go

@@ -33,7 +33,7 @@ As this method writes the headers on the wire, it should be called *after*
 setting any headers. Here is a simple test server that demonstrates writing
 headers.
 
-[`headers.go`](/examples/basic_handlers/headers.go)
+[`headers.go`](/examples/basic_handlers/headers.go.txt)
 
 ```
 package main
@@ -115,11 +115,11 @@ be able to inspect the request path. The request object includes a
 [`net/url`](http://golang.org/pkg/net/url/#URL) object (`r.URL`)
 with the client's complete resource request. When routing, we'll
 probably be interested in the `Path` field. We saw this being used
-in the [`routes.go`](/examples/routes/routes.go) example. The `URL`
+in the [`routes.go`](/examples/routes/routes.go.txt) example. The `URL`
 also contains the query: we can get the raw query with the `RawQuery`
 field, or use the `Query()` method to get at the queries:
 
-[`query.go`](/examples/basic_handlers/query.go):
+[`query.go`](/examples/basic_handlers/query.go.txt):
 
 ```
 package main
@@ -169,7 +169,7 @@ You can pull up the server locally and try some of the following requests:
 We can also grab headers from the
 [`request`](http://golang.org/pkg/net/http/#Request) object:
 
-[`read_headers.go`](/examples/basic_handlers/read_headers.go):
+[`read_headers.go`](/examples/basic_handlers/read_headers.go.txt):
 
 ```
 package main

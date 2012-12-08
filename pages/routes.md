@@ -23,7 +23,7 @@ From the [`net/http` documentation](http://golang.org/pkg/net/http/#ServeMux):
 > request containing . or .. elements to an equivalent .- and ..-free URL.
 
 This means the route we setup will handle any incoming paths. To prove this,
-let's create a new [`routes.go`](/examples/intro/routes.gp) app:
+let's create a new [`routes.go`](/examples/intro/routes.go.txt) app:
 
 ```
 package main

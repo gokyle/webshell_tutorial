@@ -19,8 +19,7 @@ The package documentation can be found in the
 made it a priority to make sure the framework is well-documented.
 
 The linked examples can be downloaded and run; to keep them from being compiled
-into this app, I've put a blank line at the beginning of the file. You should
-remove that to run them.
+into this app, I've named them as text files.
 
 Let's get started!
 
