@@ -51,7 +51,6 @@ func servePage(w http.ResponseWriter, r *http.Request) {
         }
         out, err := loadMarkdown(md_file)
         if err != nil {
-                fmt.Printf("saw request for %s, tried %s\n", file, md_file)
                 webshell.Error404("Page not found.", "text/plain", w, r)
                 return
         }
