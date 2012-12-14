@@ -33,7 +33,6 @@ Let's get started!
 * [Templating pages](/templating)
 * [Handling forms](/forms) **(WIP)**
 * [Error handling: built-in generic error handlers and template error handlers](/errors)
-**(WIP)**
 * [Deploying your app](/deployment)
 
 ### Webshell Subpackages
