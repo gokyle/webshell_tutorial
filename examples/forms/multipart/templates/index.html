@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>urlencoded form example</title>
+  </head>
+
+  <body>
+    <h1>It's A Form!</h1>
+{{if .Processed}}
+{{with .Image}}
+        <img src={{.ImageFile}}>
+        <p>{{.Caption}}</p>
+{{end}}
+{{else}}
+    <form action="/" method="post" name="userdata" enctype="multipart/form-data">
+      Caption: <input type="text" name="caption"><br /> 
+      Image: <input type="file" name="image"><br />
+      <input type="submit">
+    </form>
+{{end}}
+  </body>
+</html>
