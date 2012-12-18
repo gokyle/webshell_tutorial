@@ -38,6 +38,7 @@ func init() {
         auth.LookupCredentials = getUserAuth
         // more init code
 }
+```
 
 To check whether a password was authenticated, the `auth` package provides
 `Authenticate`:
