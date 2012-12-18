@@ -13,6 +13,7 @@
         <p>{{.Caption}}</p>
 {{end}}
 {{else}}
+    <p>Upload an image and caption it. Images should be in PNG format.</p>
     <form action="/" method="post" name="userdata" enctype="multipart/form-data">
       Caption: <input type="text" name="caption"><br /> 
       Image: <input type="file" name="image"><br />
