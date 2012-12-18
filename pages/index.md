@@ -37,7 +37,7 @@ Let's get started!
 
 ### Webshell Subpackages
 * Add an asset cache to speed up serving static files with `webshell/assetcache`
-* Add authentication and sessions with `webshell/auth`
+* Add [authentication and sessions with `webshell/auth`](/auth)
 
 ## Resources
 * webshell is based on the [`net/http` package](http://golang.org/pkg/net/http) 
