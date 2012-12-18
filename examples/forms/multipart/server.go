@@ -24,7 +24,11 @@ type FormData struct {
 var home_template = webshell.MustCompileTemplate("templates/index.html")
 
 func main() {
-	app := webshell.NewApp("minimal app", "127.0.0.1", "8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	app := webshell.NewApp("urlencoded form example", "127.0.0.1", port)
 	app.AddRoute("/", home)
 	app.StaticRoute("/images/", "images/")
 	app.Serve()
