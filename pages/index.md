@@ -31,7 +31,7 @@ Let's get started!
 * [Adding routes](/routes)
 * [Writing basic request handlers](/basic_handlers)
 * [Templating pages](/templating)
-* [Handling forms](/forms) **(WIP)**
+* [Handling forms](/forms)
 * [Error handling: built-in generic error handlers and template error handlers](/errors)
 * [Deploying your app](/deployment)
 
