@@ -28,7 +28,7 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
-	app := webshell.NewApp("urlencoded form example", "127.0.0.1", port)
+	app := webshell.NewApp("multipart form example", "127.0.0.1", port)
 	app.AddRoute("/", home)
 	app.StaticRoute("/images/", "images/")
 	app.Serve()
