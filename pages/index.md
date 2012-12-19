@@ -36,7 +36,7 @@ Let's get started!
 * [Deploying your app](/deployment)
 
 ### Webshell Subpackages
-* Add an asset cache to speed up serving static files with `webshell/assetcache`
+* Add an [asset cache](/assetcache) to speed up serving static files with `webshell/assetcache`
 * Add [authentication and sessions with `webshell/auth`](/auth)
 
 ## Resources
